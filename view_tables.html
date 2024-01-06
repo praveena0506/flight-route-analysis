@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .header-container {
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 20px;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 80%; 
+            border-collapse: collapse;
+            margin: 10px auto; 
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 6px;
+            text-align: left;
+            font-size: 17.5px; 
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+    <title>Priority Tables</title>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Priority Tables</h1>
+        {% for flight, passengers in flight_queues.items() %}
+            <h2>{{ flight }}</h2>
+            <table>
+                <tr>
+                    <th>Priority</th>
+                    <th>Name</th>
+                    <th>Reason</th>
+                    <th>Destination</th>
+                </tr>
+                {% for passenger in passengers %}
+                    <tr>
+                        <td>{{ passenger[0] }}</td>
+                        <td>{{ passenger[1] }}</td>
+                        <td>{{ passenger[2] }}</td>
+                        <td>{{ passenger[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
